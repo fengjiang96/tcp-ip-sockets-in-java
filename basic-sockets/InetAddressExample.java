@@ -2,7 +2,12 @@ import java.util.Enumeration;
 import java.net.*;
 
 public class InetAddressExample {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException {
+		String family = "(?)";
+
+		System.out.println("Localhost: " + InetAddress.getLocalHost());
+		System.out.println("Loopback: " + InetAddress.getLoopbackAddress());
+
 		try {
 			Enumeration<NetworkInterface> interfaceList = NetworkInterface.getNetworkInterfaces();
 			if (interfaceList == null) {
@@ -17,7 +22,13 @@ public class InetAddressExample {
 					}
 					while (addrList.hasMoreElements()) {
 						InetAddress address = addrList.nextElement();
-						System.out.print("\tAddress " + ((address instanceof Inet4Address ? "(v4)" : (address instanceof Inet6Address ? "(v6)" : "(?)"))));
+						if (address instanceof Inet4Address) {
+							family = "(v4)";
+						}
+						if (address instanceof Inet6Address) {
+							family = "(v6)";
+						}
+						System.out.print("\tAddress " + family);
 						System.out.println(": " + address.getHostAddress());
 					}
 				}

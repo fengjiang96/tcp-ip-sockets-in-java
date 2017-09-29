@@ -10,10 +10,10 @@ public class TCPEchoServer {
 
 		int servPort = Integer.parseInt(args[0]);
 
-		ServerSocket servSock = new ServerSocket(servPort);
+		ServerSocket servSock = new ServerSocket(servPort, 0, InetAddress.getLoopbackAddress());
 		SocketAddress localAddress = servSock.getLocalSocketAddress();
 
-		System.out.println("local address: " + localAddress);
+		System.out.println("Running on: " + servSock.getInetAddress());
 
 		int recvMsgSize;
 		byte[] receiveBuf = new byte[BUFSIZE];

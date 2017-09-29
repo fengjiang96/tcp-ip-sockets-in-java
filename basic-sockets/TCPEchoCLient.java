@@ -1,5 +1,9 @@
-// java TCPEchoClient 127.0.0.1:8080 "Echo this"
-
+/*
+ * Usage
+ * ```
+ * java TCPEchoClient 127.0.0.1 "echo this" 8080
+ * ```
+ */
 import java.net.Socket;
 import java.net.SocketException;
 import java.io.IOException;
