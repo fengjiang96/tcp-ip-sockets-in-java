@@ -17,7 +17,7 @@ public class InetAddressExample {
 					}
 					while (addrList.hasMoreElements()) {
 						InetAddress address = addrList.nextElement();
-						System.out.print("\tAddress " + ((address instanceof Inet4Address ? "(v4)" : (address instanceof Inet6Address ? "(6)" : "(?)"))));
+						System.out.print("\tAddress " + ((address instanceof Inet4Address ? "(v4)" : (address instanceof Inet6Address ? "(v6)" : "(?)"))));
 						System.out.println(": " + address.getHostAddress());
 					}
 				}
