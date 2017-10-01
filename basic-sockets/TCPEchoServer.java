@@ -11,7 +11,6 @@ public class TCPEchoServer {
 		int servPort = Integer.parseInt(args[0]);
 
 		ServerSocket servSock = new ServerSocket(servPort, 0, InetAddress.getLoopbackAddress());
-		SocketAddress localAddress = servSock.getLocalSocketAddress();
 
 		System.out.println("Running on: " + servSock.getInetAddress());
 
